@@ -33,7 +33,7 @@ const fetchPokemon = () => {
             special_attack: data[0].base["Sp. Attack"],
             special_defense: data[0].base["Sp. Defense"],
             speed: data[0].base["Speed"],
-            //moves: data[0].moves,//.map((m)=> m.move.name),
+            moves: (data[0].moves == "no moves") ? [] : data[0].moves.map((m)=> m.move.name),
             captured: data[0].captured
             
         }));
@@ -167,14 +167,22 @@ const displayPopup = (pokeman) => {
                                                 <div id="textbar"> ${pokeman.speed}%</div>
                                                 </div>
             <br><hr>
-            <!--<h3> Moves</h3>-->
-            <!--<ul class="moves">-->
             
+            <h3> Moves</h3>    
     `;
-    // pokeman.moves.forEach((p)=>{
-    //     //console.log(p);
-    //     htmlString=htmlString + '<li class="move">'+p+'</li>';
-    // })
+    console.log(pokeman.moves);
+    if(pokeman.moves.length == 0){
+        htmlString = htmlString + '<h7 style="align-items: center; display: flex; justify-content: center;">No moves</h7>';
+    }
+      
+    else{
+        htmlString += '<ul class="moves">';
+        pokeman.moves.forEach((p)=>{
+            console.log(p);
+            htmlString=htmlString + '<li class="move">'+p+'</li>';
+        });
+    }
+    
     pokedex.innerHTML = htmlString + '</div></div>';
 };
 
