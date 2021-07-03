@@ -182,30 +182,6 @@ body {
     display: grid;
     grid-template-columns: repeat(4,1fr);
 }
-/* .moves {
-    position:absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    -moz-column-count: 4;
-    -moz-column-gap: 20px;
-    -webkit-column-count: 4;
-    -webkit-column-gap: 20px;
-    column-count: 4;
-    column-gap: 20px;
-    
-
-}
-ul{
-    -moz-column-count: 4;
-    -moz-column-gap: 20px;
-    -webkit-column-count: 4;
-    -webkit-column-gap: 20px;
-    column-count: 4;
-    column-gap: 20px;
-}*/
 .moves li{
     width: 20em;
     float:left;
@@ -243,7 +219,7 @@ button:hover {
     position: absolute;
     top: 0px;
     left: 200px;
-    color: rgb(189, 189, 167);
+    color: yellow;
     font-weight: bold;
 
 }
