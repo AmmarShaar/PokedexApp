@@ -2,24 +2,6 @@ let thePokemons = [];
 const pokedex = document.getElementById('pokedex');
 const searchtext = document.getElementById('search-txt');
 const fetchPokemon = () => {
-                                            // for (let i =1; i<= 150; i++) {
-                                            //     const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-                                            //     fetch(url)
-                                            //         .then((res) => {
-                                            //             return res.json();
-                                            //         })
-                                            //         .then((data) => {
-                                            //             console.log(data);
-                                            //             const pokemon ={
-                                            //                 name: data.name,
-                                            //                 id: data.id,
-                                            //                 image: data.sprites['front_default'],
-                                            //                 type: data.types.map((type) => type.type.name).join(", ")
-                                            //             };
-
-                                            //             console.log(pokemon);
-                                            //         });
-                                            // }
     const promises = [];
 
     const usedIndexes = new Set();    
@@ -35,7 +17,7 @@ const fetchPokemon = () => {
     
     for (let i=1; i<= 5; i++) {
         const index = getUniqueRandomNumber(898,1);
-        const url = `http://localhost:5000/pokemon/${index}`;
+        const url = `/pokemon/${index}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
 
@@ -93,7 +75,7 @@ function getCaptureValuesFromStorage(id){
 }
 
 function switcherFunction(id){
-    const url = `http://localhost:5000/pokemon/${id}`;
+    const url = `/pokemon/${id}`;
     if(document.getElementById(id).checked){
         localStorage.setItem(id, "true");//
         fetch(url, {
@@ -105,33 +87,6 @@ function switcherFunction(id){
           }).catch(function(error) {                        // catch
             console.log('Request failed', error);
           });
-        // fetch(url, {
-        //     headers: { 'Content-Type': 'application/json' }, // tells the server we have json
-        //     method:'PUT', // can be POST
-        //     body: JSON.stringify({
-        //         id: id,
-        //         captured:true,
-        //     }), // json is sent to the server as text
-        //   })
-        // const request = new Request(url, {
-        //     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        //     method :'PUT',
-        //     body: JSON.stringify({
-        //         captured:true,
-        //     })
-        // })
-        // fetch(request).then((res)=>{
-        //     if (res.status === 500) {
-        //         return res.json() // return the result of the inner promise, which is an error
-        //         .then((json) => {
-        //           const { message, stackTrace } = json;
-        //           throw new ServerException(message, stackTrace);
-        //         });
-        //       } else {
-        //         return res.json();
-        //       }
-        // })
-        
     }
     else{
         localStorage.setItem(id, "false");//
