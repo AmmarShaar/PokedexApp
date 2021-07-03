@@ -34,7 +34,7 @@ const fetchPokemon = () => {
             special_defense: data[0].base["Sp. Defense"],
             speed: data[0].base["Speed"],
             //moves: data[0].moves,//.map((m)=> m.move.name),
-            captured: (localStorage.getItem(data.id) == "true")? "true": "false"
+            captured: data[0].captured
             
         }));
         thePokemons = pokemon;
