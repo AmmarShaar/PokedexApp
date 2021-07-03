@@ -31,11 +31,9 @@ app.get('/pokemon/:id', (req,res)=> {
 
 //Update Pokemon based on capture status
 app.put('/pokemon/:id',(req , res)=>{
-    console.log(req.params.id);//
     const found = pokemons.some(pokemon => pokemon.id === parseInt(req.params.id));
     if(found){
-        const updatedPokemon = req.body ;
-        res.json({msg:"Pokemon updated successfully!!!" , pokemon});
+        const updatedPokemon = req.body;
         
         pokemons.forEach(pokemon =>{
             if(pokemon.id === parseInt(req.params.id)){
